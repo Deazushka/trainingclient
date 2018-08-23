@@ -1,5 +1,3 @@
-package by.training.echoclient;
-
 import java.io.*;
 import java.net.Socket;
 
