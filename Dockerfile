@@ -1,5 +1,7 @@
 FROM openjdk:11
-COPY ./src/by/training/echoclient /src/by/training/echoclient
-WORKDIR src/by/training/echoclient
+RUN apt-get install -y git \
+&& git clone https://github.com/Deazushka/trainingclient.git trainingclient/
+WORKDIR trainingclient/src/
 RUN javac EchoClient.java
-ENTRYPOINT ["java", "EchoClient"]
+RUN jar cfe echo.jar EchoClient EchoClient.class
+ENTRYPOINT ["java", "-jar", "echo.jar"]
